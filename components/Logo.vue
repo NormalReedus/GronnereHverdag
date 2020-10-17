@@ -1,5 +1,5 @@
 <template>
-  <div>Hey from logo</div>
+  <Cta text="test" redirectTo="test"/>
 </template>
 
 <script lang="ts">
