@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+:root {
+  --primary-color: #33b850;
+  --text-color: black;
+  --text-color-inv: white;
+  --heading-font: "Coming Soon";
+  --button-font: Nunito;
+}
