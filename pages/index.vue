@@ -1,6 +1,7 @@
 <template>
   <main class="article-card-container">
     <!-- <ArticleCard /> -->
+    <Hero/>
   </main>
 </template>
 
