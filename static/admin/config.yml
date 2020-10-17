@@ -1,0 +1,53 @@
+backend:
+  name: github
+  branch: feat/netlify-cms
+  repo: NormalReedus/Sustainability
+
+publish_mode: editorial_workflow
+
+media_folder: public/article_images
+public_folder: article_images
+
+collections:
+  - name: articles
+    identifier_field: slug
+    slug: '{{day}}-{{month}}-{{year}}_{{slug}}'
+    preview_path: 'article/{{day}}-{{month}}-{{year}}_{{slug}}'
+    label: Articles
+    folder: src/articles
+    create: true
+    fields:
+      - label: Date
+        name: date
+        widget: datetime
+        dateFormat: 'DD-MM-YYYY'
+      - label: Title
+        name: title
+        widget: string
+        hint: Titel i artiklen
+      - label: Slug
+        name: slug
+        widget: string
+        hint: Titel i URLen
+      - label: Tags
+        name: tags
+        widget: list
+        field: { label: Tag, name: tag, widget: string }
+        required: false
+      - label: Components
+        name: components
+        widget: list
+        field: { label: 'Component Name', name: component, widget: string }
+        required: false
+        hint: Benyttede Vue-komponenters navne uden `</>`
+      - label: Summary
+        name: summary
+        widget: text
+        hint: Tekst på artikelkortet
+      - label: Cover Image
+        name: image
+        widget: image
+        allow_multiple: false
+      - label: Body
+        name: body
+        widget: markdown

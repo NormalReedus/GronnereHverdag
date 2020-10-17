@@ -32,15 +32,15 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     [
-      'nuxt-fontawesome', 
+      'nuxt-fontawesome',
       {
         imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['fas']
+            icons: ['fas'],
           },
-        ]
-      }
+        ],
+      },
     ],
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
