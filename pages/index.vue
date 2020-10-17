@@ -1,65 +1,77 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">gronnerehverdag</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <main class="article-card-container">
+    <!-- <ArticleCard /> -->
+  </main>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({})
-</script>
+@Component
+export default class index extends Vue {
+  async asyncData({ $content, params }) {
+    const article = await $content().fetch()
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    return { article }
+  }
+  // get co2() {
+  //   return this.$store.state.co2
+  // }
+  // get articles() {
+  //   return this.$store.state.articles
+  // }
+  // created() {
+  //   this.$store.dispatch('loadArticles')
+  // }
+}
+</script> 
+
+<style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+* {
+  box-sizing: border-box;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+// Over 1280px
+.column-layout {
+  display: grid;
+  grid-template-columns: 25% repeat(12, 1fr) 25%;
 }
 
-.links {
-  padding-top: 15px;
+.full-width {
+  grid-column: 2 / 14;
+}
+
+@media (max-width: 1280px) {
+  .column-layout {
+    grid-template-columns: 20% repeat(12, 1fr) 20%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .column-layout {
+    grid-template-columns: 14% repeat(12, 1fr) 14%;
+  }
+}
+@media (max-width: 960px) {
+  .column-layout {
+    grid-template-columns: 8% repeat(12, 1fr) 8%;
+  }
+}
+@media (max-width: 600px) {
+  .column-layout {
+    grid-template-columns: 1rem repeat(12, 1fr) 1rem;
+  }
 }
 </style>
