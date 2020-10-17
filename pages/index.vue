@@ -1,10 +1,12 @@
 <template>
   <main class="article-card-container">
+    <Hero/>
     <ArticleCard
       v-for="articleCard of articleCards"
       :key="articleCard.path"
       :card="articleCard"
     />
+    <!-- <ArticleCard /> -->
   </main>
 </template>
 
