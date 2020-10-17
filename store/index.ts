@@ -3,7 +3,7 @@ import Vue from 'vue'
 export const state = () => ({
   // co2: null,
   // co2ItemDtos: null,
-  articles: {},
+  // articles: {},
 })
 
 export const mutations = {
@@ -11,11 +11,11 @@ export const mutations = {
   //   // fetch
   //   // state.co2ItemNames =
   // },
-  setArticles(state, articles): void {
-    articles.forEach((article) => {
-      state.articles[article.path] = article
-    })
-  },
+  // setArticles(state, articles): void {
+  //   articles.forEach((article) => {
+  //     state.articles[article.path] = article
+  //   })
+  // },
 }
 
 export const actions = {

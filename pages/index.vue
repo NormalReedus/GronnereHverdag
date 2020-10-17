@@ -1,13 +1,9 @@
 <template>
   <main class="article-card-container">
     <ArticleCard
-      v-for="article in articlesArray"
-      :title="articlesObject[article.path].title"
-      :tags="articlesObject[article.path].tags"
-      :summary="articlesObject[article.path].summary"
-      :coverImageSrc="articlesObject[article.path].image"
-      :key="article.path"
-      :linksTo="article.path"
+      v-for="articleCard of articleCards"
+      :key="articleCard.path"
+      :card="articleCard"
     />
   </main>
 </template>
@@ -16,34 +12,16 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class index extends Vue {
-  get articlesArray() {
-    const articles = this.$store.state.articles
+export default class Home extends Vue {
+  async asyncData({ $content }: { store: any; $content: any }) {
+    const articleCards = await $content('articles')
+      .only(['date', 'image', 'path', 'summary', 'tags', 'title'])
+      .fetch()
 
-    return Object.values(articles)
+    return {
+      articleCards,
+    }
   }
-  get articlesObject() {
-    return this.$store.state.articles
-  }
-
-  async middleware({ store, $content }: { store: any; $content: any }) {
-    const articles = await $content('articles').fetch()
-
-    store.commit('setArticles', articles)
-  }
-
-  mounted() {
-    console.log(this.articles)
-  }
-  // get co2() {
-  //   return this.$store.state.co2
-  // }
-  // get articles() {
-  //   return this.$store.state.articles
-  // }
-  // created() {
-  //   this.$store.dispatch('loadArticles')
-  // }
 }
 </script> 
 
