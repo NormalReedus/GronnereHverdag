@@ -1,5 +1,7 @@
 <template>
-  <div>IndexPage</div>
+  <main class="article-card-container">
+    <!-- <ArticleCard /> -->
+  </main>
 </template>
 
 <script lang="ts">
@@ -7,9 +9,20 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class index extends Vue {
-  created() {
-    this.$store.dispatch('loadArticles')
+  async asyncData({ $content, params }) {
+    const article = await $content().fetch()
+
+    return { article }
   }
+  // get co2() {
+  //   return this.$store.state.co2
+  // }
+  // get articles() {
+  //   return this.$store.state.articles
+  // }
+  // created() {
+  //   this.$store.dispatch('loadArticles')
+  // }
 }
 </script> 
 
