@@ -1,6 +1,14 @@
 <template>
   <main class="article-card-container">
-    <!-- <ArticleCard /> -->
+    <ArticleCard
+      v-for="article in articlesArray"
+      :title="articlesObject[article.path].title"
+      :tags="articlesObject[article.path].tags"
+      :summary="articlesObject[article.path].summary"
+      :coverImageSrc="articlesObject[article.path].image"
+      :key="article.path"
+      :linksTo="article.path"
+    />
   </main>
 </template>
 
@@ -9,10 +17,23 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class index extends Vue {
-  async asyncData({ $content, params }) {
-    const article = await $content().fetch()
+  get articlesArray() {
+    const articles = this.$store.state.articles
 
-    return { article }
+    return Object.values(articles)
+  }
+  get articlesObject() {
+    return this.$store.state.articles
+  }
+
+  async middleware({ store, $content }: { store: any; $content: any }) {
+    const articles = await $content('articles').fetch()
+
+    store.commit('setArticles', articles)
+  }
+
+  mounted() {
+    console.log(this.articles)
   }
   // get co2() {
   //   return this.$store.state.co2

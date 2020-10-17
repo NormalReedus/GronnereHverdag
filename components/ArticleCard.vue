@@ -59,10 +59,108 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 @Component
 export default class ArticleCard extends Vue {
-  // @Prop({ required: true }) title!: string
-  // @Prop({ required: true }) coverImageSrc!: string
-  // @Prop() summary?: string
-  // @Prop() tags?: []
-  // @Prop({ required: true }) linksTo!: string
+  @Prop({ required: true }) title!: string
+  @Prop({ required: true }) coverImageSrc!: string
+  @Prop() summary?: string
+  @Prop() tags?: []
+  @Prop({ required: true }) linksTo!: string
 }
 </script> 
+
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+.card {
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+
+    //! Hardcode height
+  }
+
+  .card-text-container {
+    padding: 1.5rem;
+  }
+
+  .card-text-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #a0aec0;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.1em;
+  }
+
+  .card-text-title {
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  .card-text-description {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-more-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card-more-link {
+    color: #48bb78;
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .card-more-views {
+    color: #718096;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 0.875rem;
+    margin-right: 0.75rem;
+    padding: 0.25rem 0.75rem 0.25rem;
+    border-right: 2px solid #e2e8f0;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.25rem;
+    }
+  }
+
+  .card-more-comments {
+    color: #718096;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 0.875rem;
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.25rem;
+    }
+  }
+}
+</style>
