@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <Logo cat="hello" />
       <h1 class="title">gronnerehverdag</h1>
       <div class="links">
         <a
