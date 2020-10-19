@@ -1,3 +1,7 @@
+# ONLY LET NETLIFY CMS MANAGE ARTICLES AND THEIR IMAGES:
+content/articles/
+static/article_images/
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
