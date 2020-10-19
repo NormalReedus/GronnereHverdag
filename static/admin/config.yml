@@ -1,6 +1,6 @@
 backend:
   name: github
-  branch: master
+  branch: live
   repo: NormalReedus/GronnereHverdag
 
 publish_mode: editorial_workflow
