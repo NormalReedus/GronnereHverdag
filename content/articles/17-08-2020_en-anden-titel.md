@@ -1,5 +1,5 @@
 ---
-date: 2020-08-17T10:38:55.944Z
+date: 2020-10-19T14:30:35.312Z
 title: MD Test
 slug: En anden titel
 tags:
@@ -8,9 +8,8 @@ tags:
 components:
   - ToggledTextbox
 summary: En testartikel
-image: article_images/rund1.png
+image: article_images/placeholder.png
 ---
-
 # h1 Heading 8-)
 
 ## h2 Heading
@@ -25,11 +24,11 @@ image: article_images/rund1.png
 
 ## Horizontal Rules
 
----
+- - -
 
----
+- - -
 
----
+- - -
 
 ## Typographic replacements
 
@@ -49,9 +48,9 @@ test.. test... test..... test?..... test!....
 
 **This is bold text**
 
-_This is italic text_
+*This is italic text*
 
-_This is italic text_
+*This is italic text*
 
 ~~Strikethrough~~
 
@@ -67,27 +66,28 @@ _This is italic text_
 
 Unordered
 
-- Create a list by starting a line with `+`, `-`, or `*`
-- Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    - Ac tristique libero volutpat at
+* Create a list by starting a line with `+`, `-`, or `*`
+* Sub-lists are made by indenting 2 spaces:
+
+  * Marker character change forces new list start:
+
+    * Ac tristique libero volutpat at
     * Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-- Very easy!
+    * Nulla volutpat aliquam velit
+* Very easy!
 
 Ordered
 
 1. Lorem ipsum dolor sit amet
 2. Consectetur adipiscing elit
 3. Integer molestie lorem at massa
-
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
 
 Start numbering with offset:
 
 57. foo
-1. bar
+58. bar
 
 ## Code
 
@@ -95,10 +95,12 @@ Inline `code`
 
 Indented code
 
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
+```
+// Some comments
+line 1 of code
+line 2 of code
+line 3 of code
+```
 
 Block code "fences"
 
@@ -126,32 +128,30 @@ console.log(foo(5))
 
 Right aligned columns
 
-| Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
-|   data | path to data files to supply the data that will be passed into templates. |
-| engine |    engine to be used for processing templates. Handlebars is the default. |
-|    ext |                                      extension to be used for dest files. |
+| Option | Description                                                               |
+| ------ | ------------------------------------------------------------------------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
+| ext    | extension to be used for dest files.                                      |
 
 ## Links
 
 [link text](http://dev.nodeca.com)
 
-[link with title](http://nodeca.github.io/pica/demo/ 'title text!')
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
 Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
 ![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 
 Like links, Images also have a footnote style syntax
 
-![Alt text][id]
+![Alt text](https://octodex.github.com/images/dojocat.jpg "The Dojocat")
 
 With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
 
 ## Plugins
 
@@ -168,16 +168,16 @@ see [how to change output](https://github.com/markdown-it/markdown-it-emoji#chan
 
 ### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
 
-- 19^th^
-- H~2~O
+* 19^th^
+* H\~2\~O
 
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+### [<ins>](https://github.com/markdown-it/markdown-it-ins)
 
 ++Inserted text++
 
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+### [<mark>](https://github.com/markdown-it/markdown-it-mark)
 
-==Marked text==
+\==Marked text==
 
 ### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
 
@@ -185,13 +185,15 @@ Footnote 1 link[^first].
 
 Footnote 2 link[^second].
 
-Inline footnote^[Text of inline footnote] definition.
+Inline footnote^\[Text of inline footnote] definition.
 
 Duplicated footnote reference[^second].
 
 [^first]: Footnote **can have markup**
 
-    and multiple paragraphs.
+```
+and multiple paragraphs.
+```
 
 [^second]: Footnote text.
 
@@ -202,22 +204,24 @@ Term 1
 : Definition 1
 with lazy continuation.
 
-Term 2 with _inline markup_
+Term 2 with *inline markup*
 
 : Definition 2
 
-        { some code, part of Definition 2 }
+```
+    { some code, part of Definition 2 }
 
-    Third paragraph of definition 2.
+Third paragraph of definition 2.
+```
 
-_Compact style:_
+*Compact style:*
 
 Term 1
 ~ Definition 1
 
 Term 2
-~ Definition 2a
-~ Definition 2b
+\~ Definition 2a
+\~ Definition 2b
 
 ### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
 
@@ -225,7 +229,7 @@ This is HTML abbreviation example.
 
 It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 
-\*[HTML]: Hyper Text Markup Language
+\*\[HTML]: Hyper Text Markup Language
 
 ### [Custom containers](https://github.com/markdown-it/markdown-it-container)
 
