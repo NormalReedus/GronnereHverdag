@@ -11,51 +11,33 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Vue, Prop, Component } from 'nuxt-property-decorator'
 
-export default Vue.extend({
-  name: 'ToggledTextbox',
+@Component
+export default class ToggledTextbox extends Vue {
+  @Prop({ default: 'Læs mere' }) buttonText?: string
 
-  props: {
-    buttonText: String,
-  },
+  open: boolean = false
 
-  data() {
-    return {
-      open: false,
+  get iconClass(): string {
+    return this.open ? 'fa-minus' : 'fa-plus'
+  }
+
+  toggleTextbox(): void {
+    const textBox = this.$refs.textbox as HTMLElement
+    // Nødvendigt for at transition height:
+    if (this.open) {
+      textBox.style.height = 0 + 'px'
+      textBox.style.padding = '0 2rem'
+    } else {
+      const scrollHeight: number = textBox.scrollHeight
+
+      textBox.style.height = scrollHeight + 'px'
+      textBox.style.padding = '2rem'
     }
-  },
-
-  computed: {
-    iconClass() {
-      // @ts-ignore
-      return this.open ? 'fa-minus' : 'fa-plus'
-    },
-  },
-
-  methods: {
-    toggleTextbox() {
-      // Nødvendigt for at transition height:
-      // @ts-ignore
-      if (this.open) {
-        // @ts-ignore
-        this.$refs.textbox.style.height = 0 + 'px'
-        // @ts-ignore
-        this.$refs.textbox.style.padding = '0 2rem'
-      } else {
-        // @ts-ignore
-        const scrollHeight = this.$refs.textbox.scrollHeight
-
-        // @ts-ignore
-        this.$refs.textbox.style.height = scrollHeight + 'px'
-        // @ts-ignore
-        this.$refs.textbox.style.padding = '2rem'
-      }
-      // @ts-ignore
-      this.open = !this.open
-    },
-  },
-})
+    this.open = !this.open
+  }
+}
 </script>
 
 <style lang="scss" scoped>
