@@ -1,11 +1,11 @@
 backend:
   name: github
-  branch: feat/netlify-cms
-  repo: NormalReedus/Sustainability
+  branch: master
+  repo: NormalReedus/GronnereHverdag
 
 publish_mode: editorial_workflow
 
-media_folder: public/article_images
+media_folder: static/article_images
 public_folder: article_images
 
 collections:
@@ -34,12 +34,12 @@ collections:
         widget: list
         field: { label: Tag, name: tag, widget: string }
         required: false
-      - label: Components
-        name: components
-        widget: list
-        field: { label: 'Component Name', name: component, widget: string }
-        required: false
-        hint: Benyttede Vue-komponenters navne uden `</>`
+      # - label: Components
+      #   name: components
+      #   widget: list
+      #   field: { label: 'Component Name', name: component, widget: string }
+      #   required: false
+      #   hint: Benyttede Vue-komponenters navne uden `</>`
       - label: Summary
         name: summary
         widget: text
