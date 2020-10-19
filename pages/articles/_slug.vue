@@ -28,7 +28,7 @@ export default class Article extends Vue {
 
 <style lang="scss">
 article {
-  font-family: var(--article-font);
+  font-family: var(--article-text-font);
   line-height: 1.675;
   text-align: justify;
 }
@@ -58,7 +58,7 @@ article {
   h6 {
     margin-top: 1.3em;
     margin-bottom: 0;
-    font-family: Nunito;
+    font-family: var(--article-heading-font);
     font-weight: 600;
   }
 
