@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+:root {
+	--article-heading-font: Montserrat;
+	--article-text-font: Lato;
+  --primary-color: #33b850;
+  --text-color: black;
+  --text-color-inv: white;
+  --heading-font: 'Coming Soon';
+  --description-font: Nunito;
+	--button-font: Nunito;
+	
+	/* mobile */
+	--layout-gutter-width: 1rem;
+
+	@media (min-width: 600px) {
+		--layout-gutter-width: 8%;
+	}
+
+	@media (min-width: 960px) {
+		--layout-gutter-width: 14%;
+	}
+
+	@media (min-width: 1264px) {
+		--layout-gutter-width: 20%;
+	}
+
+	@media (min-width: 1904px) {
+		--layout-gutter-width: 25%;
+	}
+}
+
+/* Over 1280px */
+/* .column-layout {
+  display: grid;
+  grid-template-columns: 25% repeat(12, 1fr) 25%;
+}
+
+.full-width {
+  grid-column: 2 / 14;
+}
+
+@media (max-width: 1280px) {
+  .column-layout {
+    grid-template-columns: 20% repeat(12, 1fr) 20%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .column-layout {
+    grid-template-columns: 14% repeat(12, 1fr) 14%;
+  }
+}
+@media (max-width: 960px) {
+  .column-layout {
+    grid-template-columns: 8% repeat(12, 1fr) 8%;
+  }
+}
+@media (max-width: 600px) {
+  .column-layout {
+    grid-template-columns: 1rem repeat(12, 1fr) 1rem;
+  }
+} */
