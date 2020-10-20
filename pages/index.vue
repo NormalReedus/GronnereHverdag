@@ -1,35 +1,19 @@
 <template>
-  <main>
+  <div>
     <div class="cols-14">
       <Hero />
     </div>
     <div class="layout-container">
-      <div class="cols-12">
-        <ArticleCard
-          v-for="articleCard of articleCards"
-          :key="articleCard.date"
-          :card="articleCard"
-        />
-      </div>
+      <ArticleCardContainer class="cols-12" />
     </div>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class Home extends Vue {
-  async asyncData({ $content }: { store: any; $content: any }) {
-    const articleCards = await $content('articles')
-      .only(['date', 'image', 'path', 'summary', 'tags', 'title'])
-      .fetch()
-
-    return {
-      articleCards,
-    }
-  }
-}
+export default class Home extends Vue {}
 </script> 
 
 <style lang="scss">

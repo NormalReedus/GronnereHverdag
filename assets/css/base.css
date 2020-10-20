@@ -27,6 +27,9 @@ a {
 }
 .cols-12 {
 	grid-column: 2 / 14;
+
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
 }
 .cols-14 {
 	grid-column: 1 / 15;
