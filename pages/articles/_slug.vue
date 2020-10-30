@@ -7,16 +7,14 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { IArticle } from '@/types'
+import { Context } from '@nuxt/types'
 
 @Component
 export default class Article extends Vue {
   async asyncData({
     $content,
     params,
-  }: {
-    $content: any
-    params: any
-  }): Promise<{ article: IArticle }> {
+  }: Context): Promise<{ article: IArticle }> {
     const article: IArticle = await $content('articles', params.slug).fetch()
 
     return {

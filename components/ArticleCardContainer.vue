@@ -1,7 +1,7 @@
 <template>
   <main class="article-card-container">
     <ArticleCard
-      v-for="articleCard of articleCards"
+      v-for="articleCard of cards"
       :key="articleCard.date"
       :card="articleCard"
     />
@@ -11,11 +11,10 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import { IArticleCard } from '@/types'
-import { Context } from '@nuxt/types'
 
 @Component
-export default class ArticleCard extends Vue {
-  // @Prop({ required: true }) cards!: IArticleCard[]
+export default class ArticleCardContainer extends Vue {
+  @Prop({ required: true }) cards!: IArticleCard[]
 }
 </script> 
 

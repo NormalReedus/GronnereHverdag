@@ -11,9 +11,6 @@
 
       <v-card-title>{{ card.title }}</v-card-title>
       <v-card-text>{{ card.summary }}</v-card-text>
-      <!-- <v-card-actions class="card-actions">
-        <v-btn text>Læs mere <v-icon>mdi-chevron-right</v-icon></v-btn>
-      </v-card-actions> -->
     </v-card>
   </NuxtLink>
 </template>
@@ -25,10 +22,6 @@ import { IArticleCard } from '@/types'
 @Component
 export default class ArticleCard extends Vue {
   @Prop({ required: true }) card!: IArticleCard
-
-  get props() {
-    return Object.values(this.card)
-  }
 }
 </script> 
 
